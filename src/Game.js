@@ -86,7 +86,6 @@ class Game extends Component {
               >
                 {this.state.rollsLeft} Rerolls Left
               </button>
-              )
             </div>
           </section>
         </header>
