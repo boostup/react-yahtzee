@@ -1,15 +1,6 @@
 .App {
-  min-width: 100vw;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-device-width: 768px) {
-  .App {
-    height: 90vh;
-  }
+  background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
 }
 
 .App-title {

@@ -3,3 +3,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media screen and (min-device-width: 601px) {
+  .Dice {
+    margin: 1em 5em;
+  }
+}

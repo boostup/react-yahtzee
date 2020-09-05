@@ -31,6 +31,10 @@ class Game extends Component {
     };
   }
 
+  componentDidMount = () => {
+    this.roll();
+  };
+
   roll = (evt) => {
     // roll dice whose indexes are in reroll
     this.setState((st) => ({
