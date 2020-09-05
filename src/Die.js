@@ -11,10 +11,10 @@ class Die extends Component {
   };
 
   render() {
-    let classNames = `Die fas fa-dice-${
-      this.props.numberWords[this.props.val - 1]
-    }`;
-    if (this.props.locked) classNames += " Die-locked";
+    const { numberWords, locked, val, rolling } = this.props;
+    let classNames = `Die fas fa-dice-${numberWords[val - 1]}`;
+    if (locked) classNames += " Die-locked";
+    if (rolling) classNames += " Die-rolling";
     return <button className={classNames} onClick={this.handleClick}></button>;
   }
 }

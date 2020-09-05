@@ -1,9 +1,26 @@
-/* THE NICER STYLES MADE FOR THE FONT-AWESOME ICONS... */
-
 .Die {
   color: white;
-  text-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+  font-size: 4em;
   transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0 0.2rem;
+  margin: 0;
+  text-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* iPad: Portrait and Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .Die {
+    text-shadow: none; /*Blurring of svg dice shadows does not work as expected on iPad*/
+  }
+}
+
+@media only screen and (min-device-width: 768px) {
+  .Die {
+    font-size: 5em;
+  }
 }
 
 .Die-locked {
@@ -11,10 +28,13 @@
   text-shadow: none;
 }
 
-.Die:not(.Die-locked):hover {
-  cursor: pointer;
-  opacity: 0.8;
+@media (hover: hover) {
+  .Die:not(.Die-locked):hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }
+
 .Die-rolling {
   animation: spin 1s ease-out;
 }

@@ -3,21 +3,12 @@
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-device-width: 601px) {
-  .Game {
-    max-width: 600px;
-    height: 100vh;
-    margin: 0 auto;
-    top: 0;
-    bottom: 0;
-  }
-}
-
 h2 {
   font-weight: inherit;
-  font-size: 1.2em;
+  font-size: 1.4em;
   border-bottom: 2px solid purple;
   display: inline-block;
+  margin-bottom: 1rem;
 }
 
 .Game-button-wrapper {
@@ -27,11 +18,13 @@ h2 {
 }
 
 .Game-reroll {
-  font-size: 1em;
+  font-size: 1.4em;
   color: white;
   font-weight: 100;
+  letter-spacing: -0.07em;
   transition: 0.5s;
   background-size: 200% auto;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(
     to right,
     #91eae4 0%,
@@ -41,13 +34,15 @@ h2 {
   border-radius: 0.5rem;
   border: none;
   width: 50%;
-  padding: 1em;
+  padding: 0.3em 1em;
   margin-bottom: 1rem;
 }
 
-.Game-reroll:hover {
-  cursor: pointer;
-  background-position: right center;
+@media (hover: hover) {
+  .Game-reroll:hover {
+    cursor: pointer;
+    background-position: right center;
+  }
 }
 
 .Game-reroll:active,
@@ -68,4 +63,21 @@ h2 {
 
 .Game-header {
   background: linear-gradient(-45deg, #673ab7, #9c27b0);
+}
+
+@media (min-device-width: 601px) {
+  .Game {
+    max-width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+    top: 0;
+    bottom: 0;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  .Game-reroll {
+    font-size: 2em;
+    padding: 0.2em 1em;
+  }
 }
