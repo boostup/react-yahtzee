@@ -1,5 +1,14 @@
 [Live Demo](https://upbeat-bose-8f59b4.netlify.app/)
 
+**Object of the game**
+
+The object of Yahtzee is to obtain the highest score from throwing 5 dice.
+The game consists of 13 rounds. 
+In each round, you can roll the dice up to 3 times, and then score the roll in one of 13 categories. 
+You must score once in each category. 
+The score is determined by a different rule for each category.
+The game ends once all 13 categories have been scored.
+
 ![Yahtzee Game](public/images/demo.gif)
 
 ## Roadmap
