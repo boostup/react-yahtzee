@@ -116,7 +116,7 @@ class Game extends Component {
   };
 
   restart = () => {
-    this.setState(INITIAL_STATE);
+    this.setState(INITIAL_STATE, () => this.animateRoll());
   };
 
   displayRollInfo = () => {
