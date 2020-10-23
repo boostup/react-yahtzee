@@ -1,0 +1,10 @@
+.GameOver {
+  padding: 1rem;
+}
+
+.GameOver .theme-main-button,
+.GameOver .score {
+  padding: 0.3em 1em;
+  font-size: 1.4em;
+  color: white;
+}

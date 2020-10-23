@@ -3,9 +3,9 @@
 **Object of the game**
 
 The object of Yahtzee is to obtain the highest score from throwing 5 dice.
-The game consists of 13 rounds. 
-In each round, you can roll the dice up to 3 times, and then score the roll in one of 13 categories. 
-You must score once in each category. 
+The game consists of 13 rounds.
+In each round, you can roll the dice up to 3 times, and then score the roll in one of 13 categories.
+You must score once in each category.
 The score is determined by a different rule for each category.
 The game ends once all 13 categories have been scored.
 
@@ -13,8 +13,28 @@ The game ends once all 13 categories have been scored.
 
 ## Roadmap
 
-- [ ] Handle Game End/Restart
-  - [ ] Disable the GameRoll button once all RuleRows are displaying a score
+Help/Rules section
+
+- [ ] a help icon is to be displayed in the upper right corner
+- clicking on this icon displays a page which will include :
+  - [ ] game rules
+  - [ ] the demo gif
+  - [ ] the scoreboard
+
+Game End
+
+- [ ] Persist score to local storage
+- [x] Disable the GameRoll button once all RuleRows are displaying a score
+- [x] Provide mechanism to restart the game at any time
+  - [ ] if the game is not ended, but user restarts the game, ask user to confirm the game should be restarted
+
+Game scoreboard
+
+- [ ] a table which displays lines with dates and the scores
+
+File organization
+
+- [ ] re-organise files into components directory
 
 ---
 
