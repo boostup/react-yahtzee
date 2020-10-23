@@ -23,14 +23,18 @@ Help/Rules section
 
 Game End
 
-- [ ] Disable the GameRoll button once all RuleRows are displaying a score
 - [ ] Persist score to local storage
-- [ ] Provide mechanism to restart the game at any time
+- [x] Disable the GameRoll button once all RuleRows are displaying a score
+- [x] Provide mechanism to restart the game at any time
   - [ ] if the game is not ended, but user restarts the game, ask user to confirm the game should be restarted
 
 Game scoreboard
 
 - [ ] a table which displays lines with dates and the scores
+
+File organization
+
+- [ ] re-organise files into components directory
 
 ---
 
