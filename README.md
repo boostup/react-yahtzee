@@ -19,22 +19,22 @@ Unit Testing
 
 Help/Rules section
 
-- [ ] a help icon is to be displayed in the upper right corner
+- [x] a pause icon is to be displayed in the upper right corner
 - clicking on this icon displays a page which will include :
-  - [ ] game rules
-  - [ ] the demo gif
-  - [ ] the scoreboard
+  - [x] game rules
+  - [x] the demo gif
+  - [x] the scoreboard
 
 Game End
 
-- [ ] Persist score to local storage
+- [x] Persist score to local storage
 - [x] Disable the GameRoll button once all RuleRows are displaying a score
 - [x] Provide mechanism to restart the game at any time
   - [ ] if the game is not ended, but user restarts the game, ask user to confirm the game should be restarted
 
 Game scoreboard
 
-- [ ] a table which displays lines with dates and the scores
+- [x] a table which displays lines with pseudos, dates and the scores
 
 File organization
 

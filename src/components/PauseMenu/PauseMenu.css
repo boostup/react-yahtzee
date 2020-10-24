@@ -1,0 +1,75 @@
+.PauseMenu-wrapper {
+  text-align: left;
+  position: absolute;
+  width: 100vw;
+}
+
+.PauseMenu-wrapper.open {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.PauseMenu-wrapper .pause-btn-wrapper {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  padding: 0.2rem;
+}
+
+.PauseMenu-wrapper .pause-btn {
+  font-size: 1.5rem;
+}
+
+.PauseMenu-inner-wrapper {
+  width: 90%;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.PauseMenu-inner-wrapper > div {
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.PauseMenu-inner-wrapper .restart-btn {
+  width: 50%;
+  height: 15vh;
+  overflow: hidden;
+  min-height: 85px;
+}
+
+.PauseMenu-inner-wrapper .restart-btn .reload-icon {
+  font-size: 5rem;
+  transform: rotate(0deg);
+}
+
+.PauseMenu-inner-wrapper .restart-btn:hover .reload-icon {
+  color: purple;
+  transform: rotate(360deg);
+  transition: all 0.9s ease-in-out 0s;
+}
+
+.PauseMenu-inner-wrapper .restart-btn .text {
+  position: relative;
+  top: -20px;
+}
+
+@media screen and (max-width: 600px) {
+  .PauseMenu-inner-wrapper .restart-btn .text {
+    display: none;
+  }
+}
+
+.PauseMenu-inner-wrapper h2 {
+  margin-top: 1rem;
+}
+
+.PauseMenu-inner-wrapper img {
+  max-width: 100%;
+}
