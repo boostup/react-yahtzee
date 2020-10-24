@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 
-import Dice from "./Dice";
-import ScoreTable from "./ScoreTable";
-import Modal from "./Modal";
-import GameOver from "./GameOver";
+import Dice from "../Dice";
+import ScoreTable from "../ScoreTable";
+import Modal from "../Modal";
+import GameOver from "../GameOver";
 
-import "./theme.css";
 import "./Game.css";
 
 const getRandDice = () => {
