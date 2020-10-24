@@ -1,39 +1,19 @@
 import React, { Component } from "react";
 
+import { NUM_DICE, NUM_ROLLS, INITIAL_STATE } from "./game.constants";
+import {
+  getRandDice,
+  getTotalScore,
+  displayRollInfo,
+  isGameOver,
+} from "./game.utils";
+
 import Dice from "../Dice";
 import ScoreTable from "../ScoreTable";
 import Modal from "../Modal";
 import GameOver from "../GameOver";
 
 import "./Game.css";
-
-const getRandDice = () => {
-  return Math.ceil(Math.random() * 6);
-};
-
-const NUM_DICE = 5;
-const NUM_ROLLS = 3;
-const INITIAL_STATE = {
-  isGameOver: false,
-  dice: Array.from({ length: NUM_DICE }).map((d) => getRandDice()),
-  locked: Array(NUM_DICE).fill(false),
-  rollsLeft: NUM_ROLLS,
-  scores: {
-    ones: undefined,
-    twos: undefined,
-    threes: undefined,
-    fours: undefined,
-    fives: undefined,
-    sixes: undefined,
-    threeOfKind: undefined,
-    fourOfKind: undefined,
-    fullHouse: undefined,
-    smallStraight: undefined,
-    largeStraight: undefined,
-    yahtzee: undefined,
-    chance: undefined,
-  },
-};
 
 class Game extends Component {
   constructor(props) {
@@ -104,41 +84,18 @@ class Game extends Component {
   };
 
   isGameOver = () => {
-    const { scores } = this.state;
-    let unfulfilledRules = 0;
-    for (let key in scores) {
-      if (scores[key] === undefined) unfulfilledRules++;
+    const isOver = isGameOver(this.state.scores);
+    if (isOver) {
+      setTimeout(() => this.setState({ isGameOver: true }), 2000);
     }
-    const isOver = unfulfilledRules === 1;
-    if (isOver) this.setState({ isGameOver: true });
-    return isOver;
   };
 
   restart = () => {
     this.setState(INITIAL_STATE, () => this.animateRoll());
   };
 
-  displayRollInfo = () => {
-    const messages = [
-      "0 Rolls Left",
-      "1 Roll Left",
-      "2 Rolls Left",
-      "Starting Round",
-    ];
-    return messages[this.state.rollsLeft];
-  };
-
-  getTotalScore = () => {
-    const { scores } = this.state;
-    let totalScore = 0;
-    for (let key in scores) {
-      if (scores[key]) totalScore += scores[key];
-    }
-    return totalScore;
-  };
-
   render() {
-    const { dice, locked, rolling } = this.state;
+    const { dice, locked, rolling, rollsLeft, scores, isGameOver } = this.state;
     return (
       <div className="Game">
         <header className="theme-main-background">
@@ -157,21 +114,21 @@ class Game extends Component {
                 disabled={locked.every((x) => x) || rolling}
                 onClick={this.animateRoll}
               >
-                {this.displayRollInfo()}
+                {displayRollInfo(rollsLeft)}
               </button>
             </div>
           </section>
         </header>
         <ScoreTable
           doScore={this.doScore}
-          scores={this.state.scores}
-          totalScore={this.getTotalScore()}
+          scores={scores}
+          totalScore={getTotalScore(scores)}
         />
 
-        {this.state.isGameOver ? (
+        {isGameOver ? (
           <Modal>
             <GameOver
-              totalScore={this.getTotalScore()}
+              totalScore={getTotalScore(scores)}
               onRestart={this.restart}
             />
           </Modal>

@@ -13,6 +13,10 @@ The game ends once all 13 categories have been scored.
 
 ## Roadmap
 
+Unit Testing
+
+- [x] Rules
+
 Help/Rules section
 
 - [ ] a help icon is to be displayed in the upper right corner
@@ -34,7 +38,7 @@ Game scoreboard
 
 File organization
 
-- [ ] re-organise files into components directory
+- [x] re-organise files into components directory
 
 ---
 
