@@ -1,0 +1,9 @@
+.Scoreboard {
+  max-width: 100vw;
+}
+
+.Scoreboard thead th,
+.Scoreboard tbody td {
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+}

@@ -13,10 +13,13 @@ import {
   shouldGameEnd,
 } from "./game.utils";
 
+import { saveScore } from "../HallOfFame/scores.utils";
+
 import Dice from "../Dice";
 import ScoreTable from "../ScoreTable";
 import Modal from "../Modal";
 import GameOver from "../GameOver";
+import PauseMenu from "../PauseMenu";
 
 import "./Game.css";
 
@@ -67,6 +70,7 @@ class Game extends Component {
         rollsLeft: 0,
         locked: Array(NUM_DICE).fill(true),
       });
+      saveScore(getTotalScore(this.state.scores));
       return;
     }
 
@@ -105,43 +109,46 @@ class Game extends Component {
   render() {
     const { dice, locked, rolling, rollsLeft, scores, isGameOver } = this.state;
     return (
-      <div className="Game">
-        <header className="theme-main-background">
-          <h1 className="theme-main-title">Yahtzee!</h1>
+      <>
+        <PauseMenu onRestart={this.restart} />
+        <div className="Game">
+          <header className="theme-main-background">
+            <h1 className="theme-main-title">Yahtzee!</h1>
 
-          <section className="Game-dice-section">
-            <Dice
-              dice={dice}
-              locked={locked}
-              handleClick={this.toggleLocked}
-              rolling={rolling}
-            />
-            <div className="Game-button-wrapper">
-              <button
-                className="theme-main-button Game-reroll"
-                disabled={locked.every((x) => x) || rolling}
-                onClick={this.animateRoll}
-              >
-                {displayRollInfo(rollsLeft)}
-              </button>
-            </div>
-          </section>
-        </header>
-        <ScoreTable
-          doScore={this.doScore}
-          scores={scores}
-          totalScore={getTotalScore(scores)}
-        />
+            <section className="Game-dice-section">
+              <Dice
+                dice={dice}
+                locked={locked}
+                handleClick={this.toggleLocked}
+                rolling={rolling}
+              />
+              <div className="Game-button-wrapper">
+                <button
+                  className="theme-main-button Game-reroll"
+                  disabled={locked.every((x) => x) || rolling}
+                  onClick={this.animateRoll}
+                >
+                  {displayRollInfo(rollsLeft)}
+                </button>
+              </div>
+            </section>
+          </header>
+          <ScoreTable
+            doScore={this.doScore}
+            scores={scores}
+            totalScore={getTotalScore(scores)}
+          />
 
-        {isGameOver ? (
-          <Modal>
-            <GameOver
-              totalScore={getTotalScore(scores)}
-              onRestart={this.restart}
-            />
-          </Modal>
-        ) : null}
-      </div>
+          {isGameOver ? (
+            <Modal>
+              <GameOver
+                totalScore={getTotalScore(scores)}
+                onRestart={this.restart}
+              />
+            </Modal>
+          ) : null}
+        </div>
+      </>
     );
   }
 }

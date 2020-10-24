@@ -19,11 +19,11 @@ Unit Testing
 
 Help/Rules section
 
-- [ ] a help icon is to be displayed in the upper right corner
+- [x] a pause icon is to be displayed in the upper right corner
 - clicking on this icon displays a page which will include :
-  - [ ] game rules
-  - [ ] the demo gif
-  - [ ] the scoreboard
+  - [x] game rules
+  - [x] the demo gif
+  - [x] the scoreboard
 
 Game End
 
@@ -34,7 +34,7 @@ Game End
 
 Game scoreboard
 
-- [ ] a table which displays lines with dates and the scores
+- [x] a table which displays lines with pseudos, dates and the scores
 
 File organization
 
