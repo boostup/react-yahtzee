@@ -20,7 +20,7 @@ export function displayRollInfo(rollsLeft) {
   return messages[rollsLeft];
 }
 
-export function isGameOver(scores) {
+export function shouldGameEnd(scores) {
   let unfulfilledRules = 0;
   for (let key in scores) {
     if (scores[key] === undefined) unfulfilledRules++;

@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 
-import { NUM_DICE, NUM_ROLLS, INITIAL_STATE } from "./game.constants";
+import {
+  NUM_DICE,
+  NUM_ROLLS,
+  INITIAL_STATE,
+  DISPLAY_RESTART_MODAL_MS,
+} from "./game.constants";
 import {
   getRandDice,
   getTotalScore,
   displayRollInfo,
-  isGameOver,
+  shouldGameEnd,
 } from "./game.utils";
 
 import Dice from "../Dice";
@@ -55,7 +60,7 @@ class Game extends Component {
   };
 
   doScore = (rulename, ruleFn) => {
-    if (this.isGameOver()) {
+    if (this.isGameAboutToEnd()) {
       this.scoreRule({
         rulename,
         ruleFn,
@@ -83,11 +88,14 @@ class Game extends Component {
     }));
   };
 
-  isGameOver = () => {
-    const isOver = isGameOver(this.state.scores);
-    if (isOver) {
-      setTimeout(() => this.setState({ isGameOver: true }), 2000);
-    }
+  isGameAboutToEnd = () => {
+    const isOver = shouldGameEnd(this.state.scores);
+    if (isOver)
+      setTimeout(
+        () => this.setState({ isGameOver: true }),
+        DISPLAY_RESTART_MODAL_MS
+      );
+    return isOver;
   };
 
   restart = () => {

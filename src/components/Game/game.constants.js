@@ -1,5 +1,6 @@
 import { getRandDice } from "./game.utils";
 
+export const DISPLAY_RESTART_MODAL_MS = 500;
 export const NUM_DICE = 5;
 export const NUM_ROLLS = 3;
 export const INITIAL_STATE = {
