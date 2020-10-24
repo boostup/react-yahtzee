@@ -2,7 +2,11 @@ import React from "react";
 
 import "./HallOfFame.css";
 
-function HallOfFame({ scores }) {
+const EMPTY = "--";
+
+function HallOfFame(props) {
+  const scores = props.scores || [{ pseudo: EMPTY, date: null, score: EMPTY }];
+
   return (
     <div className="HallOfFame">
       <h2>Hall of fame</h2>
@@ -21,7 +25,7 @@ function HallOfFame({ scores }) {
             .map(({ pseudo, date, score }) => (
               <tr>
                 <td>{pseudo}</td>
-                <td>{new Date(date).toLocaleDateString()}</td>
+                <td>{date ? new Date(date).toLocaleDateString() : EMPTY}</td>
                 <td>{score}</td>
               </tr>
             ))}
