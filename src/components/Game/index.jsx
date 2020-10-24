@@ -13,7 +13,7 @@ import {
   shouldGameEnd,
 } from "./game.utils";
 
-import { saveScore } from "../HallOfFame/scores.utils";
+import { saveScore } from "../HallOfFame/localStorage";
 
 import Dice from "../Dice";
 import ScoreTable from "../ScoreTable";
@@ -64,16 +64,9 @@ class Game extends Component {
 
   doScore = (rulename, ruleFn) => {
     if (this.isGameAboutToEnd()) {
-      this.scoreRule({
-        rulename,
-        ruleFn,
-        rollsLeft: 0,
-        locked: Array(NUM_DICE).fill(true),
-      });
-      saveScore(getTotalScore(this.state.scores));
+      this.gameOver(rulename, ruleFn);
       return;
     }
-
     // evaluate this ruleFn with the dice and score this rulename
     this.scoreRule({
       rulename,
@@ -84,12 +77,21 @@ class Game extends Component {
     this.animateRoll();
   };
 
-  scoreRule = ({ rulename, ruleFn, rollsLeft, locked }) => {
-    this.setState((st) => ({
-      scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },
-      rollsLeft,
-      locked,
-    }));
+  scoreRule = ({
+    rulename,
+    ruleFn,
+    rollsLeft,
+    locked,
+    callbackFn = () => {},
+  }) => {
+    this.setState(
+      (st) => ({
+        scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },
+        rollsLeft,
+        locked,
+      }),
+      callbackFn
+    );
   };
 
   isGameAboutToEnd = () => {
@@ -100,6 +102,20 @@ class Game extends Component {
         DISPLAY_RESTART_MODAL_MS
       );
     return isOver;
+  };
+
+  gameOver = (rulename, ruleFn) => {
+    this.scoreRule({
+      rulename,
+      ruleFn,
+      rollsLeft: 0,
+      locked: Array(NUM_DICE).fill(true),
+      callbackFn: () => {
+        const totalScore = getTotalScore(this.state.scores);
+        console.log(totalScore);
+        saveScore(totalScore);
+      },
+    });
   };
 
   restart = () => {

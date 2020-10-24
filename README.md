@@ -27,7 +27,7 @@ Help/Rules section
 
 Game End
 
-- [ ] Persist score to local storage
+- [x] Persist score to local storage
 - [x] Disable the GameRoll button once all RuleRows are displaying a score
 - [x] Provide mechanism to restart the game at any time
   - [ ] if the game is not ended, but user restarts the game, ask user to confirm the game should be restarted

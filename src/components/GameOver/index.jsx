@@ -8,7 +8,7 @@ export default ({ totalScore, onRestart }) => (
     <p className="score">Score: {totalScore}</p>
     <p>&nbsp;</p>
     <button className="theme-main-button" onClick={onRestart}>
-      Restart?
+      Restart
     </button>
   </div>
 );

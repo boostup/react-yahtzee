@@ -2,9 +2,9 @@ import React from "react";
 
 import "./HallOfFame.css";
 
-function Scoreboard({ scores }) {
+function HallOfFame({ scores }) {
   return (
-    <div className="Scoreboard">
+    <div className="HallOfFame">
       <h2>Hall of fame</h2>
       <table>
         <thead>
@@ -15,17 +15,20 @@ function Scoreboard({ scores }) {
           </tr>
         </thead>
         <tbody>
-          {scores.map(({ pseudo, date, score }) => (
-            <tr>
-              <td>{pseudo}</td>
-              <td>{date}</td>
-              <td>{score}</td>
-            </tr>
-          ))}
+          {scores
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 9)
+            .map(({ pseudo, date, score }) => (
+              <tr>
+                <td>{pseudo}</td>
+                <td>{new Date(date).toLocaleDateString()}</td>
+                <td>{score}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
   );
 }
 
-export default Scoreboard;
+export default HallOfFame;

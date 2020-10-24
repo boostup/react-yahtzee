@@ -1,9 +1,29 @@
-.Scoreboard {
+.HallOfFame {
   max-width: 100vw;
 }
+.HallOfFame table {
+  margin: 0 auto;
+}
 
-.Scoreboard thead th,
-.Scoreboard tbody td {
-  text-align: left;
+.HallOfFame thead th,
+.HallOfFame tbody td {
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
   padding: 0.25rem 0.5rem;
+}
+
+.HallOfFame tbody td {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .HallOfFame thead th {
+    font-weight: 300;
+  }
+
+  .HallOfFame thead th,
+  .HallOfFame tbody td {
+    font-size: 1rem;
+  }
 }
