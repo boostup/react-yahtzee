@@ -1,0 +1,21 @@
+.PauseButton {
+  right: 10px;
+  top: 5px;
+  height: 40px;
+  width: 40px;
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  border-spacing: 0;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.42rem;
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  outline: none;
+  text-decoration: none;
+  text-indent: 0;
+  position: relative;
+  cursor: pointer;
+}

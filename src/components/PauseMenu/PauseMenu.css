@@ -1,28 +1,20 @@
 .PauseMenu-wrapper {
-  text-align: left;
   position: absolute;
-  width: 100vw;
-}
-
-.PauseMenu-wrapper.open {
-  background-color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  width: 100%;
 }
 
 .PauseMenu-wrapper .pause-btn-wrapper {
-  align-items: center;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  padding: 0.2rem;
-}
-
-.PauseMenu-wrapper .pause-btn {
-  font-size: 1.5rem;
+  position: absolute;
+  z-index: 1000;
+  top: 20px;
+  left: 41px;
 }
 
 .PauseMenu-inner-wrapper {
-  width: 90%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
   align-items: center;
   text-align: center;
   margin: 0 auto;
@@ -60,7 +52,7 @@
   top: -20px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
   .PauseMenu-inner-wrapper .restart-btn .text {
     display: none;
   }

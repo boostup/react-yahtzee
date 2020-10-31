@@ -17,6 +17,13 @@ Unit Testing
 
 - [x] Rules
 
+## Micro-animations
+
+**Pause menu icon**
+
+- [x] morph effect from pause icon to close icon
+- [x] growing/shrinking of circular mask effect while open and closing
+
 Help/Rules section
 
 - [x] a pause icon is to be displayed in the upper right corner
